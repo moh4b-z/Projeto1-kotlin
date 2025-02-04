@@ -28,12 +28,27 @@ class Consulta {
         println("------------------")
         println("Dados do Consunlta")
         println("------------------")
-        println("DATA: ${dataConsulta}")
+        println("DATA: ${formatarDataParaBrasil(dataConsulta!!)}")
         println("HORÁRIO: ${horaConsulta}")
         println("VALOR: ${valor}")
         println("PACIENTE: ${paciente!!.nome}")
         println(" -> IMC: ${paciente!!.calcularImc()}")
         println("MÉDICO: ${medico!!.nome}")
         println("------------------")
+    }
+
+    private  fun formatarDataParaBrasil(data: LocalDate): String{
+        var dia = "${ data.dayOfMonth }"
+        var mes = "${data.month.value}"
+        var ano = data.year
+
+        if(dia.length <= 1){
+            dia = "0$dia"
+        }
+        if(mes.length <= 1){
+            mes = "0$dia"
+        }
+
+        return  "$dia/$mes/$ano"
     }
 }
