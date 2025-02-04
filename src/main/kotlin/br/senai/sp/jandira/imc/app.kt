@@ -2,7 +2,9 @@ package br.senai.sp.jandira.imc
 
 import br.senai.sp.jandira.imc.model.Paciente
 import br.senai.sp.jandira.imc.model.Medico
+import br.senai.sp.jandira.imc.model.Consulta
 import java.time.LocalDate
+import java.time.LocalTime
 
 fun main() {
     //Criar um paciente ana maria
@@ -46,4 +48,13 @@ fun main() {
     medico2.especialidades.add("Gastroenterologista")
     medico2.email = "marcos@email.com"
     medico2.mostraDados()
+
+    var consulta1 = Consulta()
+    consulta1.agendarConsulta(
+        paciente1,
+        medico1,
+        LocalDate.of(2025,2,21),
+        LocalTime.of(10,30),
+        199.99)
+    consulta1.mostrarDadosDaConsunlta()
 }
